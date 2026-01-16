@@ -35,8 +35,8 @@ int main() {
     size_t y_size = ROWS * sizeof(float);
 
     
-    float *h_W = (float*)malloc(w_size);
-    float *h_X = (float*)malloc(x_size);
+    float *h_W = (float*)malloc(w_size); // (1024, 1024)
+    float *h_X = (float*)malloc(x_size); // (1024, 1)
     float *h_Y = (float*)malloc(y_size);
 
     // initialize Matrix 
