@@ -1,0 +1,7 @@
+#binaries
+neural_layer
+vector_add
+hello
+
+*.o
+*.out
