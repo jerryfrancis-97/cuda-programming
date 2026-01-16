@@ -6,7 +6,8 @@
 // matrix vector multiplication kernel
 __global__ void matMulKernel(float* W, float* X, float* Y, float* B, int width, int height) {
     
-    // calculating only along the X direction, x axis, row is constant -> using Y thread
+    // loop is calculating only along the X direction, row is constant 
+    // while we are iterating on the Y axis -> using Y threads
     int row = blockIdx.y * blockDim.y + threadIdx.y;
 
     if (row < height) {
@@ -16,8 +17,8 @@ __global__ void matMulKernel(float* W, float* X, float* Y, float* B, int width, 
         }
 
         float val = sum + B[row]; // adding bias      
-        val = val > 0 ? val : 0; // applying RELU
-        Y[row] = val;
+        Y[row] = fmaxf(0.0f, val); // applying RELU
+        
 
     }
 
