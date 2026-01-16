@@ -6,7 +6,7 @@
 // matrix vector multiplication kernel
 __global__ void matMulKernel(float* W, float* X, float* Y, float* B, int width, int height) {
     
-    // calculating only along the X direction, x axis, row is constant -> using X thread
+    // calculating only along the X direction, x axis, row is constant -> using Y thread
     int row = blockIdx.y * blockDim.y + threadIdx.y;
 
     if (row < height) {
