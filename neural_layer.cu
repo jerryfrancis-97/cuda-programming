@@ -81,8 +81,8 @@ int main() {
     printf("First 5 results: %f %f %f %f %f\n", h_Y[0], h_Y[1], h_Y[2], h_Y[3], h_Y[4]);
     printf("(Expected 0.7 because of bias)\n");
 
-    cudaFree(d_W); cudaFree(d_X); cudaFree(d_Y);
-    free(h_W); free(h_X); free(h_Y);
+    cudaFree(d_W); cudaFree(d_X); cudaFree(d_Y); cudaFree(d_B);
+    free(h_W); free(h_X); free(h_Y); free(h_B)
 
     return 0;
 }
